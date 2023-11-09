@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<body>
+    <form action="/" method="POST">
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" placeholder="first name"><br>
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" placeholder="last name"><br>
+        <label for="img_url">IMG URL</label>
+        <input type="text" name="img_url" placeholder="IMG Url">
+        <button>Add</button>
+    </form>
+</body>
+
+{% endblock %}
+
