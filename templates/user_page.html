@@ -3,15 +3,17 @@
 {% block content %}
 
 
-<body>
-    <h1>Users</h1>
-    <ul>
+<body class="bg-slate-100">
+    <h1 class="text-7xl font-bold text-blue-800 leading-normal">Users</h1>
+    <ul class="text-5xl text-blue-600 font-semibold leading-normal mt-10">
         {% for user in users %}
-        <li><a href="/{{user.id}}">{{user.first_name}}</a></li>
+        <li class="text-blue"><a href="/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
         {% endfor %}
     </ul>
     <form action="/add_user">
-        <button>Add User</button>
+        <button class="bg-green-500 rounded-3xl py-3 px-8 font-medium 
+        mr-4 mt-4 hover:bg-transparent hover:border-blue-400 
+        hover:text-blue-500 duration-300 hover:border border border-transparent">Add User</button>
     </form>
 </body>
 

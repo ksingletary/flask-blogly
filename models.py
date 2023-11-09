@@ -33,4 +33,9 @@ class User(db.Model):
                           unique=True)
     image_url = db.Column(db.String(255),
                           nullable=False,
-                          unique=True)
+                          unique=True,
+                          default=None)
+    def __repr__(self):
+        return f"<User id={self.id} first_name={self.first_name} last_name={self.last_name}>"
+    
+                        
