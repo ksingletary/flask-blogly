@@ -3,11 +3,11 @@
 {% block content %}
 
 
-<body class="bg-slate-100">
+<body class="bg-slate-100 ml-3">
     <h1 class="text-7xl font-bold text-blue-800 leading-normal">Users</h1>
     <ul class="text-5xl text-blue-600 font-semibold leading-normal mt-10">
         {% for user in users %}
-        <li class="text-blue"><a href="/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
+        <li class="text-blue"><a href="/{{user.id}}">{{user.get_full_name()}}</a></li>
         {% endfor %}
     </ul>
     <form action="/add_user">

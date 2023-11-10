@@ -2,17 +2,24 @@
 {% block title %}{% endblock %}
 {% block content %}
 
-<h1>Add A User</h1>
+<h1 class="text-7xl font-bold text-blue-800 leading-normal">Add a User</h1>
+<a href="/" class="text-2xl text-gray-500 font-medium ml-5"><span>&#8701;</span>Home</a>
 <body>
-    <form action="/" method="POST">
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" placeholder="first name"><br>
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" placeholder="last name"><br>
-        <label for="img_url">IMG URL</label>
-        <input type="text" name="img_url" placeholder="IMG Url">
-        <button>Add</button>
-        <a href="/">Home</a>
+    <form action="/" method="POST" class="mt-10 ml-10">
+        <label for="first_name" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">First Name</label>
+        <input type="text" name="first_name" placeholder="first name" class="mb-5 w-80 ml-10 border-sky-700 bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <label for="last_name" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">Last Name</label>
+        <input type="text" name="last_name" placeholder="last_name" class="mb-5 w-80 ml-10 border-sky-700 bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <label for="img_url" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">IMG URL</label>
+        <input type="text" name="img_url" placeholder="IMG Url" class="mb-5 w-80 ml-10 border-sky-700 bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <button class="bg-green-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-blue-400 
+       hover:text-blue-500 duration-300 hover:border border border-transparent">Add</button>
+    </form>
+    <form action="/">
+        <button class="ml-10 bg-red-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-blue-400 
+        hover:text-blue-500 duration-300 hover:border border border-transparent">Cancel</button>
     </form>
 </body>
 

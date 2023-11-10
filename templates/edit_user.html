@@ -2,19 +2,23 @@
 {% block title %}{{user.first_name}}{% endblock %}
 {% block content %}
 
-<h1>Editing {{user.first_name}}</h1>
+<h1 class="text-7xl font-bold text-blue-800 leading-normal">Editing <span class="font-light">{{user.get_full_name()}}</span></h1>
 <body>
-    <form action="{{ url_for('edit_user', user_id=user.id) }}" method="POST">
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" value={{user.first_name}}><br>
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" value="{{user.last_name}}"><br>
-        <label for="img_url">IMG URL</label>
-        <input type="text" name="img_url" value="{{user.image_url}}">
-        <button>Save</button>
+    <form action="{{ url_for('edit_user', user_id=user.id) }}" method="POST" class="mt-10 ml-10">
+        <label for="first_name" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">First Name</label>
+        <input type="text" name="first_name" value={{user.first_name}} class="mb-5 w-80 ml-10 border-sky-700	bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <label for="last_name" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">Last Name</label>
+        <input type="text" name="last_name" value="{{user.last_name}}" class="mb-5 w-80 ml-10 border-sky-700	bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <label for="img_url" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">IMG URL</label>
+        <input type="text" name="img_url" value="{{user.image_url}}" class="mb-5 w-80 ml-10 border-sky-700 bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <button class="bg-green-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-blue-400 
+       hover:text-blue-500 duration-300 hover:border border border-transparent">Save</button>
     </form>
     <form action="/{{user.id}}">
-        <button>Cancel</button>
+        <button class="ml-10 bg-red-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-blue-400 
+        hover:text-blue-500 duration-300 hover:border border border-transparent">Cancel</button>
     </form>
 </body>
 
