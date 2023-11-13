@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -33,7 +34,7 @@ class User(db.Model):
                           unique=True)
     image_url = db.Column(db.String(255),
                           nullable=False,
-                          unique=True,
+                          unique=False,
                           default=None)
     def __repr__(self):
         return f"<User id={self.id} first_name={self.first_name} last_name={self.last_name}>"
@@ -41,5 +42,23 @@ class User(db.Model):
     def get_full_name(self):
         full_name = f"{self.first_name} {self.last_name}"
         return full_name
+    
+class Post(db.Model):
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    
+    title = db.Column(db.String(50),
+                      nullable=False)
+    content = db.Column(db.String(255),
+                        nullable=False)
+    
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+    user_name = db.relationship('User', backref='posts')
     
                         

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+
+
+<h1 class="text-7xl font-bold text-blue-800 leading-normal">Edit Post</h1>
+<body>
+    <form action="/posts/{{post.id}}/edit" method="POST" class="mt-10 ml-10">
+        <label for="title" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">Title</label><br>
+        <input type="text" name="title" value="{{post.title}}"  class="mb-5 w-1/3 border-sky-700 bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
+        <label for="content" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">Content</label><br>
+        <input type="text" name="content" value="{{post.content}}" class="mb-3 w-1/3 border-sky-700 bg-green-300 rounded-2xl py-10 px-3 font-medium"><br>
+        <button id="new_post" class="bg-green-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-green-400 
+       hover:text-green-500 duration-300 hover:border border border-transparent">Post</button>
+    </form>
+    <form action="/posts/{{post.id}}">
+        <button class="ml-10 bg-red-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-red-400 
+        hover:text-red-500 duration-300 hover:border border border-transparent">Cancel</button>
+    </form>
+</body>
+
+
+
+
+
+
+{% endblock %}

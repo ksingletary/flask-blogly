@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+
+
+<body>
+    <h1 class="text-5xl ml-3 underline font-bold text-blue-800 leading-normal">{{post.title}}</h1>
+    <a href="/" class="text-2xl text-gray-500 font-medium ml-5"><span>&#8701;</span>Home</a>
+    <p class="ml-5 text-2xl mt-10 mb-10 font-mono">{{post.content}}</p>
+    <h5 class="text-3xl mt-4 ml-3 font-semibold text-blue-800 leading-normal">By {{post.user_name.first_name}} {{post.user_name.last_name}}</h5>
+
+    <form action="/posts/{{post.id}}/edit" class="inline-block">
+        <button id="new_post" class="bg-green-500 ml-5 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-green-400 
+       hover:text-green-500 duration-300 hover:border border border-transparent">Edit</button>
+    </form>
+    <form action="/{{post.user_name.id}}" class="inline-block">
+        <button class="ml-5 bg-blue-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-blue-400 
+        hover:text-blue-500 duration-300 hover:border border border-transparent">Cancel</button>
+    </form>
+    <form action="/posts/{{post.id}}/delete" class="inline-block" method="POST">
+        <button class="ml-5 bg-red-500 rounded-3xl py-3 px-8 font-medium 
+        mt-4 hover:bg-transparent hover:border-red-400 
+        hover:text-red-500 duration-300 hover:border border border-transparent">Delete</button>
+    </form>
+</body>
+
+
+{% endblock %}
