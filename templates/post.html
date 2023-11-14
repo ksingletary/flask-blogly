@@ -7,7 +7,7 @@
     <h1 class="text-5xl ml-3 underline font-bold text-blue-800 leading-normal">{{post.title}}</h1>
     <a href="/" class="text-2xl text-gray-500 font-medium ml-5"><span>&#8701;</span>Home</a>
     <p class="ml-5 text-2xl mt-10 mb-10 font-mono">{{post.content}}</p>
-    <h5 class="text-3xl mt-4 ml-3 font-semibold text-blue-800 leading-normal">By {{post.user_name.first_name}} {{post.user_name.last_name}}</h5>
+    <h5 class="text-3xl mt-4 ml-3 font-semibold text-blue-800 leading-normal">By {{post.user_name.first_name}} {{post.user_name.last_name}} on {{post.created_at}}</h5>
 
     <form action="/posts/{{post.id}}/edit" class="inline-block">
         <button id="new_post" class="bg-green-500 ml-5 rounded-3xl py-3 px-8 font-medium 

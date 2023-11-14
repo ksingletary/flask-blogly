@@ -7,6 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <h3 class="text-red-500 font-bold ml-3 mt-3">{{ message }}</h3>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
 </body>
 </html>

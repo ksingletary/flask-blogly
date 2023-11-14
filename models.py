@@ -32,10 +32,11 @@ class User(db.Model):
     last_name = db.Column(db.String(50),
                           nullable=False,
                           unique=True)
-    image_url = db.Column(db.String(255),
+    image_url = db.Column(db.String(500),
                           nullable=False,
                           unique=False,
                           default=None)
+    
     def __repr__(self):
         return f"<User id={self.id} first_name={self.first_name} last_name={self.last_name}>"
     
@@ -50,9 +51,9 @@ class Post(db.Model):
                    primary_key=True,
                    autoincrement=True)
     
-    title = db.Column(db.String(50),
+    title = db.Column(db.String(500),
                       nullable=False)
-    content = db.Column(db.String(255),
+    content = db.Column(db.Text,
                         nullable=False)
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -60,5 +61,30 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user_name = db.relationship('User', backref='posts')
+
+    tags = db.relationship('PostTag', back_populates='post', lazy='dynamic')
+               
+class Tag(db.Model):
+
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    name = db.Column(db.Text,
+                     unique=True)
     
-                        
+    posts = db.relationship('PostTag', back_populates='tag', lazy='dynamic')
+    
+class PostTag(db.Model):
+
+    __tablename__ = 'posttags'
+
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), 
+                        primary_key=True, unique=True, nullable=False)
+
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), 
+                       primary_key=True, unique=True, nullable=False)
+    
+    post = db.relationship('Post', back_populates='tags', lazy='joined')
+    tag = db.relationship('Tag', back_populates='posts', lazy='joined')

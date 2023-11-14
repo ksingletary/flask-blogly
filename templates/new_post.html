@@ -14,11 +14,19 @@
         mt-4 hover:bg-transparent hover:border-blue-400 
        hover:text-blue-500 duration-300 hover:border border border-transparent">Post</button>
     </form>
+   
     <form action="/{{user.id}}">
         <button class="ml-10 bg-red-500 rounded-3xl py-3 px-8 font-medium 
         mt-4 hover:bg-transparent hover:border-blue-400 
         hover:text-blue-500 duration-300 hover:border border border-transparent">Cancel</button>
     </form>
+
+    <h3 for="title" class="text-5xl ml-10 font-semibold text-blue-600 leading-normal">Tags</h3>
+    <div class="text-5xl text-blue-600 font-light leading-normal ml-10">
+        {% for tag in tags %}
+        <div class="inline-block">{{tag.name}},</div>
+        {% endfor %}
+    </div>
 </body>
 
 
