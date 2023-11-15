@@ -61,8 +61,10 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user_name = db.relationship('User', backref='posts')
-
     tags = db.relationship('PostTag', back_populates='post', lazy='dynamic')
+
+    def __repr__(self):
+        return f"<id={self.id} title={self.title} content={self.content} tags={self.tags} user_name={self.user_name}>"
                
 class Tag(db.Model):
 
@@ -81,10 +83,10 @@ class PostTag(db.Model):
     __tablename__ = 'posttags'
 
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), 
-                        primary_key=True, unique=True, nullable=False)
+                        primary_key=True, nullable=False)
 
     tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), 
-                       primary_key=True, unique=True, nullable=False)
+                       primary_key=True, nullable=False)
     
     post = db.relationship('Post', back_populates='tags', lazy='joined')
     tag = db.relationship('Tag', back_populates='posts', lazy='joined')

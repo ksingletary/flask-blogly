@@ -10,6 +10,15 @@
         <input type="text" name="title" value="{{post.title}}"  class="mb-5 w-1/3 border-sky-700 bg-green-300 rounded-2xl py-2 px-4 font-medium"><br>
         <label for="content" class="mb-5 text-4xl font-semibold text-blue-600 leading-normal">Content</label><br>
         <input type="text" name="content" value="{{post.content}}" class="mb-3 w-1/3 border-sky-700 bg-green-300 rounded-2xl py-10 px-3 font-medium"><br>
+        <h3 for="title" class="text-5xl ml-1 font-semibold text-blue-600 leading-normal">Tags</h3>
+        <div class="form-group">
+            <div class="text-5xl text-blue-600 font-light leading-normal ml-5">
+                {% for tag in tags %}
+                <input name="tags" type="checkbox" value="{{tag.name}}" class="inline-block hover:text-green-500">
+                <label for="tags">{{tag.name}}</label>
+                {% endfor %}
+            </div>
+        </div>
         <button id="new_post" class="bg-green-500 rounded-3xl py-3 px-8 font-medium 
         mt-4 hover:bg-transparent hover:border-green-400 
        hover:text-green-500 duration-300 hover:border border border-transparent">Post</button>
